@@ -24,5 +24,10 @@ namespace ExtensionsMethodsSample
                 return string.Empty;
             return Path.Combine(directoryBase, $"{date.Year}",$"{date.Month:D2}",$"{date.Day:D2}");
         }
+
+        public static bool ContainsValue(this string value)
+        {
+            return !string.IsNullOrWhiteSpace(value);
+        }
     }
 }
