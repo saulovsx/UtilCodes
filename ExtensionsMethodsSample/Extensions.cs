@@ -16,7 +16,13 @@ namespace ExtensionsMethodsSample
                                  .Where(ch => CharUnicodeInfo.GetUnicodeCategory(ch) != UnicodeCategory.NonSpacingMark)
                                  .ToArray());
             return textWithoutAccent;
-        }        
+        }
 
+        public static string ToPath(this DateTime date, string directoryBase = "")
+        {
+            if(date == DateTime.MinValue || date == DateTime.MaxValue)
+                return string.Empty;
+            return Path.Combine(directoryBase, $"{date.Year}",$"{date.Month:D2}",$"{date.Day:D2}");
+        }
     }
 }
