@@ -19,3 +19,6 @@ Console.WriteLine($"The string white space : {stringWhiteSpace.ContainsValue()}"
 
 string stringValue  = "Test value";
 Console.WriteLine($"The string value : {stringValue.ContainsValue()}");
+
+string stringTileCase  = "title case";
+Console.WriteLine($"The string Tile Case : {stringTileCase.ToTitleCase()}");

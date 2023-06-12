@@ -29,5 +29,10 @@ namespace ExtensionsMethodsSample
         {
             return !string.IsNullOrWhiteSpace(value);
         }
+
+        public static string ToTitleCase(this string value)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value.ToLower());
+        }
     }
 }
