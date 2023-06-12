@@ -1,5 +1,7 @@
 using System.Text;
 using System.Globalization;
+using System.Text.RegularExpressions;
+
 namespace ExtensionsMethodsSample
 {
     public static class Extensions
@@ -33,6 +35,11 @@ namespace ExtensionsMethodsSample
         public static string ToTitleCase(this string value)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value.ToLower());
+        }
+
+        public static string RemoveNonAlphanumeric(this string value)
+        {
+            return Regex.Replace(value, @"[^a-zA-Z0-9\s]", "");
         }
     }
 }
