@@ -41,5 +41,17 @@ namespace ExtensionsMethodsSample
         {
             return Regex.Replace(value, @"[^a-zA-Z0-9\s]", "");
         }
+
+        public static string ToISO8601(this DateTime dateTime, TimeSpan offset = default)
+        {
+            var offsetDateTime = dateTime.ToUniversalTime().Add(offset);
+            var sign = (offset < TimeSpan.Zero) ? "-" : "+";
+            return $"{offsetDateTime:yyyy-MM-ddTHH:mm:ss}{sign}{offset:h\\:mm}";
+        }
+
+        public static DateTimeOffset ToDateOffSet(this DateTime dateTime, TimeSpan offset = default)
+        {
+            return new DateTimeOffset(dateTime, offset);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ExtensionsMethodsSample;
+﻿using System;
+using ExtensionsMethodsSample;
 
 string stringDate = "21/12/2023";
 DateTime date = stringDate.ToDate();
@@ -25,3 +26,8 @@ Console.WriteLine($"The string in TileCase : {stringTileCase.ToTitleCase()}");
 
 string stringAlphaNumeric  = "siga-me 30/10 {3}";
 Console.WriteLine($"Clean string : {stringAlphaNumeric.RemoveNonAlphanumeric()}");
+
+DateTime dateISO8601 = DateTime.Now;
+TimeSpan offSet = new TimeSpan(-3,0,0);
+Console.WriteLine($"DateTime ISO8601 String : {dateISO8601.ToISO8601(offSet)}");
+Console.WriteLine($"DateTimeOffset : {dateISO8601.ToDateOffSet(offSet)}");
