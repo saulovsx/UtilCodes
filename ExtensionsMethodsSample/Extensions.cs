@@ -1,7 +1,7 @@
 using System.Text;
 using System.Globalization;
 using System.Text.RegularExpressions;
-
+using Newtonsoft.Json;
 namespace ExtensionsMethodsSample
 {
     public static class Extensions
@@ -52,6 +52,12 @@ namespace ExtensionsMethodsSample
         public static DateTimeOffset ToDateOffSet(this DateTime dateTime, TimeSpan offset = default)
         {
             return new DateTimeOffset(dateTime, offset);
+        }
+
+        public static T? ConvertTo<T>(this object obj)
+        {
+            string json = JsonConvert.SerializeObject(obj);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }
